@@ -1,5 +1,7 @@
 #include "translateTables.hpp"
 #include <algorithm>
+#include <locale>
+#include <codecvt>
 
 EnglishLang::EnglishLang()
 {
@@ -53,10 +55,35 @@ std::string EnglishLang::searchForReplaceSymbol(std::string whatSearch)
         }
     }
 
-    // todo remove
-    std::string tmp = getReplaceSensitive(russianTable[position], whatSearch); 
-    return tmp;
-    // return russianTable[position];
+    return getReplaceSensitive(russianTable[position], whatSearch);
+}
+
+
+/// @brief Get exact match if exist
+std::string EnglishLang::exactMatch(std::string whatToMatch)
+{
+        std::string notSensitive = whatToMatch;
+    std::transform(
+        notSensitive.begin(), 
+        notSensitive.end(), 
+        notSensitive.begin(), 
+        ::tolower);
+
+    
+    int position = -1;
+    for(int i = 0; i < englishTable.size(); i++) {
+        if (englishTable[i] == notSensitive) {
+            position = i;
+            break;
+        }
+    }
+
+    if (position == -1) {
+        return "";
+    }
+
+    return getReplaceSensitive(russianTable[position], whatToMatch);
+
 };
 
 /// @brief Function will be search for count in table and return counts
@@ -98,8 +125,6 @@ std::string EnglishLang::getReplaceSensitive(std::string replace, std::string or
                 caseSensitiveReplace += replace.substr(1,replace.size() - 1);
             }
         }
-    } else {
-        caseSensitiveReplace += replace;
     }
     return caseSensitiveReplace;
 }
@@ -122,16 +147,13 @@ std::string EnglishLang::lowerString(std::string whatLower)
 
 std::string EnglishLang::upperString(std::string whatUpper)
 {
-    std::string upperString = whatUpper;
-    if (whatUpper.size() == 2) {
-        upperString = toupper(whatUpper[0]);
-    } else {
-        std::transform(
-            upperString.begin(),
-            upperString.end(),
-            upperString.begin(),
-            ::toupper
-        );
+    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
+    std::wstring wstr = converter.from_bytes(whatUpper);
+
+    std::locale loc("ru_RU.UTF-8");
+    for (wchar_t& c : wstr) {
+        c = std::toupper(c, loc);
     }
-    return upperString;
+
+    return converter.to_bytes(wstr);
 }

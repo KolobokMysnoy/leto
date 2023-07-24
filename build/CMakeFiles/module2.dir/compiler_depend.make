@@ -183,8 +183,77 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/c++/11/pstl/execution_defs.h
+  /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/c++/11/locale \
+  /usr/include/c++/11/bits/locale_classes.h \
+  /usr/include/c++/11/bits/locale_classes.tcc \
+  /usr/include/c++/11/bits/locale_facets.h \
+  /usr/include/c++/11/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+  /usr/include/c++/11/bits/ios_base.h \
+  /usr/include/c++/11/system_error \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
+  /usr/include/c++/11/stdexcept \
+  /usr/include/c++/11/exception \
+  /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/bits/nested_exception.h \
+  /usr/include/c++/11/streambuf \
+  /usr/include/c++/11/bits/streambuf.tcc \
+  /usr/include/c++/11/bits/streambuf_iterator.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
+  /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/locale_facets_nonio.h \
+  /usr/include/c++/11/ctime \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/11/bits/locale_conv.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/codecvt
 
+
+/usr/include/c++/11/bits/unique_ptr.h:
+
+/usr/include/c++/11/bits/locale_conv.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h:
+
+/usr/include/c++/11/bits/locale_facets_nonio.h:
+
+/usr/include/c++/11/bits/locale_facets.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
+
+/usr/include/c++/11/bits/streambuf_iterator.h:
+
+/usr/include/c++/11/bits/streambuf.tcc:
+
+/usr/include/c++/11/bits/nested_exception.h:
+
+/usr/include/c++/11/codecvt:
+
+/usr/include/c++/11/exception:
+
+/usr/include/c++/11/stdexcept:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
+
+/usr/include/c++/11/bits/ios_base.h:
+
+/usr/include/c++/11/cwctype:
+
+/usr/include/c++/11/bits/locale_facets.h:
+
+/usr/include/c++/11/bits/locale_classes.tcc:
+
+/usr/include/c++/11/bits/locale_classes.h:
 
 /usr/include/c++/11/bits/erase_if.h:
 
@@ -215,6 +284,10 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/asm-generic/errno.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
+
+/usr/include/wctype.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
@@ -252,6 +325,8 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
+/usr/include/c++/11/bits/cxxabi_init_exception.h:
+
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
 /usr/include/wchar.h:
@@ -284,7 +359,11 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
 
+/usr/include/c++/11/system_error:
+
 /usr/include/c++/11/bits/stl_vector.h:
+
+/usr/include/libintl.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
@@ -346,9 +425,13 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
+/usr/include/c++/11/bits/exception_ptr.h:
+
 /usr/include/c++/11/ext/string_conversions.h:
 
 /usr/include/features-time64.h:
+
+/usr/include/c++/11/locale:
 
 /usr/include/linux/errno.h:
 
@@ -383,6 +466,8 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 /usr/include/c++/11/bits/ostream_insert.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/c++/11/streambuf:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
@@ -450,6 +535,8 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
@@ -467,6 +554,10 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/c++/11/bits/codecvt.h:
+
+/usr/include/c++/11/ctime:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
@@ -519,6 +610,8 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/time.h:
+
+/usr/include/c++/11/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/11/bits/stl_pair.h:
 

@@ -30,6 +30,7 @@ class ILang {
     virtual int countMatches(std::string whatCount) = 0;
     virtual bool isSingleMatch(std::string whatSearch) = 0;
     virtual bool isInReplaceTable(std::string whatCheck) = 0; 
+    virtual std::string exactMatch(std::string whatToMatch) = 0;
 };
 
 class EnglishLang: public ILang {
@@ -41,6 +42,7 @@ class EnglishLang: public ILang {
         bool isInReplaceTable(std::string whatCheck) override;
 
         std::string searchForReplaceSymbol(std::string whatSearch) override;
+        std::string exactMatch(std::string whatToMatch) override;
     
     private:
         std::vector<std::string> russianTable;

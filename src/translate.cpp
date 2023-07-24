@@ -14,18 +14,42 @@ std::string EnglishTranslit::translitString(std::string toTranslit)
 {
     std::string translitedResult = "";
     std::string symbol = "";
+    bool existBefore = false;
+    std::string beforeReplacement = "";
 
     for(int i = 0; i < toTranslit.length(); i++) {
         symbol += toTranslit[i];
         std::string replacement = 
             languageTranslit->searchForReplaceSymbol(symbol);
         
-        if (replacement == "" && languageTranslit->countMatches(symbol) == 0) {
-            replacement = symbol;
+        int matches = languageTranslit->countMatches(symbol);
+
+        if (replacement == "" && matches == 0) {
+            if (beforeReplacement != "") {
+                replacement = beforeReplacement;
+                
+                char lastChar = symbol[symbol.size() - 1];
+                std::string tmp;
+                tmp.push_back(lastChar);
+
+                std::string replacementAdd = 
+                    languageTranslit->searchForReplaceSymbol(tmp);
+
+                replacement += replacementAdd;
+            } else {
+                replacement = symbol;
+            }
+        }
+
+        if (matches > 0) {
+            existBefore = true;
+            beforeReplacement = languageTranslit->exactMatch(symbol);
         }
         
         if (replacement != "") {
             symbol = "";
+            existBefore = false;
+            beforeReplacement = "";
         }
 
         translitedResult += replacement;
