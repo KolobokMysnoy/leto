@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/mnt/g/my_programs/DockerC/translit/build",
+  "command": "/usr/bin/g++  -I/mnt/g/my_programs/DockerC/translit/include -g -o CMakeFiles/module1.dir/src/translate.cpp.o -c /mnt/g/my_programs/DockerC/translit/src/translate.cpp",
+  "file": "/mnt/g/my_programs/DockerC/translit/src/translate.cpp"
+},
+{
+  "directory": "/mnt/g/my_programs/DockerC/translit/build",
+  "command": "/usr/bin/g++  -I/mnt/g/my_programs/DockerC/translit/include -g -o CMakeFiles/module2.dir/src/translateTables.cpp.o -c /mnt/g/my_programs/DockerC/translit/src/translateTables.cpp",
+  "file": "/mnt/g/my_programs/DockerC/translit/src/translateTables.cpp"
+},
+{
+  "directory": "/mnt/g/my_programs/DockerC/translit/build",
+  "command": "/usr/bin/g++  -I/mnt/g/my_programs/DockerC/translit/include -g -o CMakeFiles/main.dir/test.cpp.o -c /mnt/g/my_programs/DockerC/translit/test.cpp",
+  "file": "/mnt/g/my_programs/DockerC/translit/test.cpp"
+}
+]

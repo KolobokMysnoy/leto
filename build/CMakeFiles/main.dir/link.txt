@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/main.dir/test.cpp.o -o main  libmodule1.a libmodule2.a 
