@@ -13,3 +13,5 @@ add_library(module2 src/translateTables.cpp)
 
 # Линкуем исполняемый файл с библиотеками
 target_link_libraries(main module1 module2)
+
+add_subdirectory(tests)

@@ -117,14 +117,7 @@ std::string EnglishLang::getReplaceSensitive(std::string replace, std::string or
 {
     std::string caseSensitiveReplace = replace;
     if (isupper(original[0])) {
-        if (original.size() > 1 && isupper(original[1])) {
-            caseSensitiveReplace = this->upperString(caseSensitiveReplace);
-        } else {
-            caseSensitiveReplace += toupper(replace[0]);
-            if (replace.size() > 1) {
-                caseSensitiveReplace += replace.substr(1,replace.size() - 1);
-            }
-        }
+        caseSensitiveReplace = this->upperString(caseSensitiveReplace);
     }
     return caseSensitiveReplace;
 }

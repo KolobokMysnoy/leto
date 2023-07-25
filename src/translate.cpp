@@ -45,14 +45,17 @@ std::string EnglishTranslit::translitString(std::string toTranslit)
             existBefore = true;
             beforeReplacement = languageTranslit->exactMatch(symbol);
         }
-        
-        if (replacement != "") {
+
+        if (replacement != "" && !(matches == 1 && replacement == "")) {
             symbol = "";
             existBefore = false;
             beforeReplacement = "";
         }
 
         translitedResult += replacement;
+    }
+    if (symbol != "") {
+        translitedResult += languageTranslit->exactMatch(symbol);
     }
 
     return translitedResult;

@@ -5,17 +5,17 @@
 #include <string>
 
 const std::vector<std::string> englishTb = {
-        "ya", 
+        "ya", "w", "e`",
         "yu", "z", "i", "sh", "zh", 
         "j", "yo", "cz", "l", "g", 
-        "sch", "``", "s", "x", "k", 
+        "shh", "``", "s", "x", "k", 
         "d", "n", "b", "e", "a", 
         "`", "m", "v", "o", "ch", 
         "p", "u", "r", "t", "f"
     };
 
 const std::vector<std::string> russianTb = {
-        "я", 
+        "я", "ы", "э",
         "ю", "з", "и", "ш", "ж", 
         "й", "ё", "ц", "л", "г", 
         "щ", "ъ", "с", "х", "к", 
