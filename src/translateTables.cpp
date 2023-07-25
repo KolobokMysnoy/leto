@@ -84,6 +84,11 @@ std::string EnglishLang::exactMatch(std::string whatToMatch)
 
     return getReplaceSensitive(russianTable[position], whatToMatch);
 
+}
+
+std::string EnglishLang::whatReplacement(std::string whatToReplace, int whatPos)
+{
+    return std::string();
 };
 
 /// @brief Function will be search for count in table and return counts
