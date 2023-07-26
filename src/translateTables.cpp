@@ -122,12 +122,14 @@ std::string EnglishLang::getReplaceSensitive(std::string replace, std::string or
 {
     std::string caseSensitiveReplace = replace;
     if (isupper(original[0])) {
-        caseSensitiveReplace = this->upperString(caseSensitiveReplace);
+        caseSensitiveReplace = this->upperStringRus(caseSensitiveReplace);
     }
     return caseSensitiveReplace;
 }
 
-std::string EnglishLang::lowerString(std::string whatLower)
+
+/// @brief Lower entire string of English letters
+std::string EnglishLang::lowerStringEng(std::string whatLower)
 {
     std::string lowerString = whatLower;
     if (whatLower.size() == 1) {
@@ -143,7 +145,7 @@ std::string EnglishLang::lowerString(std::string whatLower)
     return lowerString;
 }
 
-std::string EnglishLang::upperString(std::string whatUpper)
+std::string EnglishLang::upperStringRus(std::string whatUpper)
 {
     std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
     std::wstring wstr = converter.from_bytes(whatUpper);

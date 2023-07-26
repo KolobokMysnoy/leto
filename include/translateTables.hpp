@@ -46,6 +46,7 @@ class EnglishLang: public ILang {
         std::string exactMatch(std::string whatToMatch) override;
 
         std::string whatReplacement(std::string whatToReplace, int whatPos = 0) override;
+
     private:
         std::vector<std::string> russianTable;
         std::vector<std::string> englishTable;
@@ -53,8 +54,8 @@ class EnglishLang: public ILang {
         int searchForCount(std::string whatSearch, int maxCount = -1);
         std::string getReplaceSensitive(std::string replace, std::string original);
         
-        std::string lowerString(std::string whatLower);
-        std::string upperString(std::string whatUpper);
+        std::string lowerStringEng(std::string whatLower);
+        std::string upperStringRus(std::string whatUpper);
 };
 
 #endif

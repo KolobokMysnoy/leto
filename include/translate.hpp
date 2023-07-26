@@ -14,7 +14,7 @@ class EnglishTranslit: public ITranslit {
 
         std::string translitString(std::string toTranslit) override;
         void changeTable(ILang* languageTranslite) override;
-
+        
     private:
         ILang* languageTranslit;
 };
