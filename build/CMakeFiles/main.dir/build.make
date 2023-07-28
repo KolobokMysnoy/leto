@@ -92,6 +92,7 @@ main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/test.cpp.o
 main: CMakeFiles/main.dir/build.make
+main: libTransform.a
 main: libmodule1.a
 main: libmodule2.a
 main: CMakeFiles/main.dir/link.txt

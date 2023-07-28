@@ -201,6 +201,19 @@ module2/fast:
 .PHONY : module2/fast
 
 #=============================================================================
+# Target rules for targets named Transform
+
+# Build rule for target.
+Transform: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Transform
+.PHONY : Transform
+
+# fast build rule for target.
+Transform/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transform.dir/build.make CMakeFiles/Transform.dir/build
+.PHONY : Transform/fast
+
+#=============================================================================
 # Target rules for targets named hello_test
 
 # Build rule for target.
@@ -264,6 +277,30 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
+
+src/transformer.o: src/transformer.cpp.o
+.PHONY : src/transformer.o
+
+# target to build an object file
+src/transformer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transform.dir/build.make CMakeFiles/Transform.dir/src/transformer.cpp.o
+.PHONY : src/transformer.cpp.o
+
+src/transformer.i: src/transformer.cpp.i
+.PHONY : src/transformer.i
+
+# target to preprocess a source file
+src/transformer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transform.dir/build.make CMakeFiles/Transform.dir/src/transformer.cpp.i
+.PHONY : src/transformer.cpp.i
+
+src/transformer.s: src/transformer.cpp.s
+.PHONY : src/transformer.s
+
+# target to generate assembly for a file
+src/transformer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Transform.dir/build.make CMakeFiles/Transform.dir/src/transformer.cpp.s
+.PHONY : src/transformer.cpp.s
 
 src/translate.o: src/translate.cpp.o
 .PHONY : src/translate.o
@@ -349,6 +386,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... Transform"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
@@ -357,6 +395,9 @@ help:
 	@echo "... main"
 	@echo "... module1"
 	@echo "... module2"
+	@echo "... src/transformer.o"
+	@echo "... src/transformer.i"
+	@echo "... src/transformer.s"
 	@echo "... src/translate.o"
 	@echo "... src/translate.i"
 	@echo "... src/translate.s"

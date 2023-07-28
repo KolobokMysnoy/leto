@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/mnt/g/my_programs/DockerC/translit/build/CMakeFiles/Transform.dir/DependInfo.cmake"
   "/mnt/g/my_programs/DockerC/translit/build/CMakeFiles/module1.dir/DependInfo.cmake"
   "/mnt/g/my_programs/DockerC/translit/build/CMakeFiles/module2.dir/DependInfo.cmake"
   )

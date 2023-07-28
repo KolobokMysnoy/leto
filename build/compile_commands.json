@@ -11,6 +11,11 @@
 },
 {
   "directory": "/mnt/g/my_programs/DockerC/translit/build",
+  "command": "/usr/bin/g++  -I/mnt/g/my_programs/DockerC/translit/include -g -o CMakeFiles/Transform.dir/src/transformer.cpp.o -c /mnt/g/my_programs/DockerC/translit/src/transformer.cpp",
+  "file": "/mnt/g/my_programs/DockerC/translit/src/transformer.cpp"
+},
+{
+  "directory": "/mnt/g/my_programs/DockerC/translit/build",
   "command": "/usr/bin/g++  -I/mnt/g/my_programs/DockerC/translit/include -g -o CMakeFiles/main.dir/test.cpp.o -c /mnt/g/my_programs/DockerC/translit/test.cpp",
   "file": "/mnt/g/my_programs/DockerC/translit/test.cpp"
 },

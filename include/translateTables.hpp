@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include "transformer.hpp"
 
 const std::vector<std::string> englishTb = {
         "ya", "w", "e`",
@@ -24,38 +25,41 @@ const std::vector<std::string> russianTb = {
         "п", "у", "р", "т", "ф"
     };
 
+
 class ILang {
     public:
-    virtual std::string searchForReplaceSymbol(std::string whatSearch) = 0;
-    virtual int countMatches(std::string whatCount) = 0;
-    virtual bool isSingleMatch(std::string whatSearch) = 0;
-    virtual bool isInReplaceTable(std::string whatCheck) = 0; 
-    virtual std::string exactMatch(std::string whatToMatch) = 0;
-    virtual std::string whatReplacement(std::string whatToReplace, int whatPos = 0) = 0;
+        virtual int countMatches(std::string whatToSearch) = 0;
+        
+        virtual std::string searchForReplacement(std::string whatToReplace, 
+            int positionOfFound = 0) = 0;
+        virtual std::string searchForSensitive(std::string replace,
+            std::string original) = 0;
+
+        virtual std::string getReplaceNow(const std::string whatReplace) = 0;
 };
+
 
 class EnglishLang: public ILang {
     public:
         EnglishLang();
 
         int countMatches(std::string whatCount) override;
-        bool isSingleMatch(std::string whatSearch) override;
-        bool isInReplaceTable(std::string whatCheck) override;
+      
+        std::string searchForReplacement(std::string whatToReplace, 
+            int positionOfFound = 0);
+        std::string searchForSensitive(std::string replace, 
+            std::string original);
 
-        std::string searchForReplaceSymbol(std::string whatSearch) override;
-        std::string exactMatch(std::string whatToMatch) override;
-
-        std::string whatReplacement(std::string whatToReplace, int whatPos = 0) override;
+        std::string getReplaceNow(const std::string whatReplace);
 
     private:
         std::vector<std::string> russianTable;
         std::vector<std::string> englishTable;
+        
+        ITrans* russianTransfrom;
+        ITrans* englishTransfrom;
 
         int searchForCount(std::string whatSearch, int maxCount = -1);
-        std::string getReplaceSensitive(std::string replace, std::string original);
-        
-        std::string lowerStringEng(std::string whatLower);
-        std::string upperStringRus(std::string whatUpper);
 };
 
 #endif

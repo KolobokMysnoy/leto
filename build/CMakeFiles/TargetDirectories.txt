@@ -1,6 +1,7 @@
 /mnt/g/my_programs/DockerC/translit/build/CMakeFiles/main.dir
 /mnt/g/my_programs/DockerC/translit/build/CMakeFiles/module1.dir
 /mnt/g/my_programs/DockerC/translit/build/CMakeFiles/module2.dir
+/mnt/g/my_programs/DockerC/translit/build/CMakeFiles/Transform.dir
 /mnt/g/my_programs/DockerC/translit/build/CMakeFiles/edit_cache.dir
 /mnt/g/my_programs/DockerC/translit/build/CMakeFiles/rebuild_cache.dir
 /mnt/g/my_programs/DockerC/translit/build/CMakeFiles/list_install_components.dir

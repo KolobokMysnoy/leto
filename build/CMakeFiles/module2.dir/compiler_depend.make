@@ -158,6 +158,7 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
+  ../include/transformer.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
@@ -438,6 +439,8 @@ CMakeFiles/module2.dir/src/translateTables.cpp.o: ../src/translateTables.cpp \
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/c++/11/bits/hashtable.h:
+
+../include/transformer.hpp:
 
 ../include/translateTables.hpp:
 
