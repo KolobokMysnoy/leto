@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef TRANSFORMER
+#define TRANSFORMER
 #include <string>
 
 class ITrans {
@@ -10,12 +10,18 @@ class ITrans {
 
 class EnglishTransform: public ITrans {
     public:
-        std::string transformToUpper(const std::string whatTransform) override;
-        std::string transformToLower(const std::string whatTransform) override;
+        EnglishTransform();
+
+        virtual std::string transformToUpper(const std::string whatTransform) override;
+        virtual std::string transformToLower(const std::string whatTransform) override;
 };
 
 class RussianTransform: public ITrans {
     public:
-        std::string transformToUpper(const std::string whatTransform) override;
-        std::string transformToLower(const std::string whatTransform) override;
+        RussianTransform();
+
+        virtual std::string transformToUpper(const std::string whatTransform) override;
+        virtual std::string transformToLower(const std::string whatTransform) override;
 };
+
+#endif

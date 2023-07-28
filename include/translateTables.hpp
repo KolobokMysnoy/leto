@@ -6,9 +6,9 @@
 #include "transformer.hpp"
 
 const std::vector<std::string> englishTb = {
-        "ya", "w", "e`",
+        "ya", "y", "e`",
         "yu", "z", "i", "sh", "zh", 
-        "j", "yo", "cz", "l", "g", 
+        "j", "yo", "c", "l", "g", 
         "shh", "``", "s", "x", "k", 
         "d", "n", "b", "e", "a", 
         "`", "m", "v", "o", "ch", 
@@ -36,6 +36,8 @@ class ILang {
             std::string original) = 0;
 
         virtual std::string getReplaceNow(const std::string whatReplace) = 0;
+
+        virtual bool isInReplacementTable(const char whatToCheck) = 0;
 };
 
 
@@ -46,11 +48,13 @@ class EnglishLang: public ILang {
         int countMatches(std::string whatCount) override;
       
         std::string searchForReplacement(std::string whatToReplace, 
-            int positionOfFound = 0);
+            int positionOfFound = 0) override;
         std::string searchForSensitive(std::string replace, 
-            std::string original);
+            std::string original) override;
 
-        std::string getReplaceNow(const std::string whatReplace);
+        std::string getReplaceNow(const std::string whatReplace) override;
+        
+        bool isInReplacementTable(const char whatToCheck) override;
 
     private:
         std::vector<std::string> russianTable;
@@ -58,6 +62,8 @@ class EnglishLang: public ILang {
         
         ITrans* russianTransfrom;
         ITrans* englishTransfrom;
+
+        std::string allSymbols;
 
         int searchForCount(std::string whatSearch, int maxCount = -1);
 };

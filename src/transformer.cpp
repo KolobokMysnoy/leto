@@ -3,6 +3,10 @@
 #include <locale>
 #include <codecvt>
 
+RussianTransform::RussianTransform()
+{
+}
+
 /// @brief Transform string of russian letters to upper capitals
 std::string RussianTransform::transformToUpper(const std::string whatTransform)
 {
@@ -29,6 +33,10 @@ std::string RussianTransform::transformToLower(const std::string whatTransform)
     }
 
     return converter.to_bytes(wstr);
+}
+
+EnglishTransform::EnglishTransform()
+{
 }
 
 /// @brief Transform string of english letters to upper capitals

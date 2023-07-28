@@ -1,5 +1,10 @@
 #include "translate.hpp"
 
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
 /// @brief Set language that will translit
 /// @param languageTranslite 
 EnglishTranslit::EnglishTranslit(ILang *languageTranslite)
@@ -10,55 +15,89 @@ EnglishTranslit::EnglishTranslit(ILang *languageTranslite)
 /// @brief Translit string to string in another language 
 /// @param toTranslit String to translit
 /// @return Translited string
-std::string EnglishTranslit::translitString(std::string toTranslit)
+std::string EnglishTranslit::translitString(const std::string toTranslit)
 {
-    std::string translitedResult = "";
-    std::string symbol = "";
-    bool existBefore = false;
-    std::string beforeReplacement = "";
+    std::string replacementString = "";
+    std::string currentStringToReplace = "";
 
-    for(int i = 0; i < toTranslit.length(); i++) {
-        symbol += toTranslit[i];
-        std::string replacement = 
-            languageTranslit->searchForReplaceSymbol(symbol);
+    std::string lastReplacement = "";
+    int i = 0;
+    int lastReplacePos = 0;
+    std::string suggestReplacementBefore = "";
+
+    while(i < toTranslit.size()) {
+        currentStringToReplace += toTranslit[i];
+        int count = languageTranslit->countMatches(currentStringToReplace);
         
-        int matches = languageTranslit->countMatches(symbol);
+        if (count == 1) {
+            replacementString += 
+                languageTranslit->getReplaceNow(currentStringToReplace);
+            
+            lastReplacement = currentStringToReplace;
+            currentStringToReplace = "";
 
-        if (replacement == "" && matches == 0) {
-            if (beforeReplacement != "") {
-                replacement = beforeReplacement;
-                
-                char lastChar = symbol[symbol.size() - 1];
-                std::string tmp;
-                tmp.push_back(lastChar);
+            lastReplacePos = i;
+            suggestReplacementBefore = "";
+        };
 
-                std::string replacementAdd = 
-                    languageTranslit->searchForReplaceSymbol(tmp);
-
-                replacement += replacementAdd;
-            } else {
-                replacement = symbol;
-            }
+        if (count > 1) {
+            suggestReplacementBefore = languageTranslit
+                ->getReplaceNow(currentStringToReplace);
         }
 
-        if (matches > 0) {
-            existBefore = true;
-            beforeReplacement = languageTranslit->exactMatch(symbol);
+        // Symbols not in table
+        if (currentStringToReplace.size() == 1 && 
+            !(languageTranslit->isInReplacementTable(currentStringToReplace[0])))
+        {
+            replacementString += currentStringToReplace;
+            
+            lastReplacement = currentStringToReplace;
+            currentStringToReplace = "";
+            count = 1;
+
+            lastReplacePos = i;
+            suggestReplacementBefore = "";
+        }
+        
+        if (count == 0 
+            && suggestReplacementBefore != "") 
+        {
+            replacementString += suggestReplacementBefore;
+            i -= 1;
+            suggestReplacementBefore = "";
+            count = 1;    
+            currentStringToReplace = "";
         }
 
-        if (replacement != "" && !(matches == 1 && replacement == "")) {
-            symbol = "";
-            existBefore = false;
-            beforeReplacement = "";
+        // if cant get replacement
+        if (count == 0) {
+            std::string replaceSymbols = "";
+
+            for (int j = i - lastReplacement.size() - 1;
+                j < toTranslit.size(); j++) 
+                {
+                    replaceSymbols += toTranslit[j];
+                    std::string replace = 
+                        languageTranslit->getReplaceNow(replaceSymbols);
+                    
+                    if (replace != "") {
+                        replacementString = replacementString
+                            .substr(0, replacementString.size() - 1);
+
+                        replacementString += replace;
+                        i += -lastReplacement.size() + replace.size();
+
+                        lastReplacement = replaceSymbols;
+                        break;
+                    }
+                }
         }
 
-        translitedResult += replacement;
-    }
-    if (symbol != "") {
-        translitedResult += languageTranslit->exactMatch(symbol);
-    }
+        i++;
+    };
 
-    return translitedResult;
+
+    return replacementString + suggestReplacementBefore;
 }
 
 /// @brief Change language that translit

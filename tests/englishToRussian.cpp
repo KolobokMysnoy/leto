@@ -7,6 +7,8 @@
 
 // Hard strings from GOST
 TEST(EnglishToRussian, HardStrings) {
+    // Выудить было убрано, так как транслитерация правильная может быть как выудить,
+    // так и вюдить.
     std::vector<std::string> examples = {
         "esli",
         "yolka",
@@ -20,13 +22,13 @@ TEST(EnglishToRussian, HardStrings) {
         "jogurt",
         "major",
         "rajon",
-        "vwudit`",
-        "novwe",
+        // "vyudit`",
+        "novye",
         "opyat`",
-        "czifra",
+        "cifra",
         "me`r",
         "shhit",
-        "shhitka",
+        "schitka",
     };
     
     std::vector<std::string> expectedResults = {
@@ -42,7 +44,7 @@ TEST(EnglishToRussian, HardStrings) {
         "йогурт",
         "майор",
         "район",
-        "выудить",
+        // "выудить",
         "новые",
         "опять",
         "цифра",
@@ -60,5 +62,17 @@ TEST(EnglishToRussian, HardStrings) {
             expectedResults[i]
         );
     }
+};
 
+TEST(EnglishToRussian, Text) {
+    std::string EnglistText = "Translit (sokrashhenno ot «transliteraciya») — e`to napisanie slov odnogo yazyka bukvami drugogo. Kak pravilo, translitom nazyvayut kirillicheskij tekst, napisannyj latinskimi bukvami. Naprimer, vopros Kak perevesti russkij v translit? mozhet byt` napisan Kak perevesti russkij v translit?";
+    std::string expectedRussian = "Транслит (сокращенно от «транслитерация») — это написание слов одного языка буквами другого. Как правило, транслитом называют кириллический текст, написанный латинскими буквами. Например, вопрос Как перевести русский в транслит? может быть написан Как перевести русский в транслит?";
+
+    ILang* lang = new EnglishLang();
+    EnglishTranslit transliter(lang);
+
+    EXPECT_EQ(
+        transliter.translitString(EnglistText),
+        expectedRussian
+    );
 };

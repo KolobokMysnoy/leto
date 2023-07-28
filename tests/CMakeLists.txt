@@ -22,6 +22,7 @@ target_link_libraries(
   GTest::gtest_main
   module1 
   module2
+  Transform
 )
 
 include(GoogleTest)

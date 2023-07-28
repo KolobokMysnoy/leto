@@ -5,14 +5,14 @@ project(my_project)
 include_directories(include)
 
 # Добавляем исполняемый файл main
-add_executable(main test.cpp)
+add_executable(main main.cpp)
 
 # Добавляем библиотеки для module1 и module2
+add_library(Transform src/transformer.cpp)
 add_library(module1 src/translate.cpp)
 add_library(module2 src/translateTables.cpp)
-add_library(Transform src/transformer.cpp)
 
 # Линкуем исполняемый файл с библиотеками
-target_link_libraries(main Transform module1 module2)
+target_link_libraries(main module1 module2 Transform)
 
 add_subdirectory(tests)
