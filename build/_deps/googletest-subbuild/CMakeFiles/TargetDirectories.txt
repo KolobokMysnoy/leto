@@ -1,3 +1,0 @@
-/mnt/g/my_programs/DockerC/translit/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/mnt/g/my_programs/DockerC/translit/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/mnt/g/my_programs/DockerC/translit/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

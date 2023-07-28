@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmodule2.a CMakeFiles/module2.dir/src/translateTables.cpp.o
-/usr/bin/ranlib libmodule2.a

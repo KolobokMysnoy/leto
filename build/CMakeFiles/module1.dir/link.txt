@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmodule1.a CMakeFiles/module1.dir/src/translate.cpp.o
-/usr/bin/ranlib libmodule1.a

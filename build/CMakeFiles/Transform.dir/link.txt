@@ -1,2 +1,0 @@
-/usr/bin/ar qc libTransform.a CMakeFiles/Transform.dir/src/transformer.cpp.o
-/usr/bin/ranlib libTransform.a
