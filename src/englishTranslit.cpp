@@ -47,7 +47,9 @@ std::string EnglishTranslit::translitString(const std::string toTranslit)
 
         // Symbols not in table
         if (currentStringToReplace.size() == 1 && 
-            !(languageTranslit->isInReplacementTable(currentStringToReplace[0])))
+            !(languageTranslit->isInReplacementTable(
+                std::string(1, currentStringToReplace[0])
+            )))
         {
             replacementString += currentStringToReplace;
             

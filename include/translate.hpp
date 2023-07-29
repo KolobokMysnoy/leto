@@ -18,4 +18,16 @@ class EnglishTranslit: public ITranslit {
     private:
         ILang* languageTranslit;
 };
+
+class RussianTranslit: public ITranslit {
+    public:
+        RussianTranslit(ILang* languageTranslite);
+
+        std::string translitString(const std::string toTranslit) override;
+        void changeTable(ILang* languageTranslite) override;
+        
+    private:
+        ILang* languageTranslit;
+};
+
 #endif

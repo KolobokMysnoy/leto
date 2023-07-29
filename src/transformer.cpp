@@ -44,7 +44,7 @@ std::string EnglishTransform::transformToUpper(const std::string whatTransform)
 {
     std::string upperString = whatTransform;
     if (whatTransform.size() == 1) {
-        upperString = tolower(whatTransform[0]);
+        upperString = toupper(whatTransform[0]);
     } else {
         std::transform(
             upperString.begin(),

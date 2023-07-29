@@ -15,14 +15,15 @@ enable_testing()
 
 add_executable(
   hello_test
-  englishToRussian.cpp
+  tranlitTest.cpp
 )
 target_link_libraries(
   hello_test
   GTest::gtest_main
-  module1 
-  module2
+  translate 
+  translateTables 
   Transform
+  Converter
 )
 
 include(GoogleTest)
