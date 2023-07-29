@@ -1,61 +1,42 @@
+#include <iostream>
+#include <string>
+
 #include "translate.hpp"
 #include "translateTables.hpp"
-#include <iostream>
 #include "englishTable.hpp"
 #include "russianTable.hpp"
 
 int main() {
-        ILang* lang = new RussianLang();
-        RussianTranslit transliter(lang);
-    
-        std::vector<std::string> examples = {
-        // "esli",
-        // "yolka",
-        // "ob``em",
-        // "ob``yom",
-        // "uznaesh`",
-        // "uznayosh`",
-        // "Chajkovskij",
-        // "chaj",
-        // "zajka",
-        // "jogurt",
-        // "major",
-        // "rajon",
-        // "vwudit`",
-        // "novwe",
-        // "opyat`",
-        // "czifra",
-        // "me`r",
-        // "shhit",
-        // "schitka",
-        // "Translit (sokrashhenno ot «transliteraciya») — e`to napisanie slov odnogo yazyka bukvami drugogo. Kak pravilo, translitom nazyvayut kirillicheskij tekst, napisannyj latinskimi bukvami. Naprimer, vopros Kak perevesti russkij v translit? mozhet byt` napisan Kak perevesti russkij v translit?"
-        // "если",
-        // "ёлка",
-        // "объем",
-        // "объём",
-        // "узнаешь",
-        // "узнаёшь",
-        // "Чайковский",
-        // "чай",
-        // "зайка",
-        // "йогурт",
-        // "майор",
-        // "район",
-        // "выудить",
-        // "новые",
-        // "опять",
-        // "цифра",
-        // "мэр",
-        // "щит",
-        // "считка",
-        "Транслит (сокращенно от «транслитерация») — это написание слов одного языка буквами другого. Как правило, транслитом называют кириллический текст, написанный латинскими буквами. Например, вопрос Как перевести русский в транслит? может быть написан Как перевести русский в транслит?"
-        // " транслит?"
-    };
-
-// todo в русском 2 индекс на один символ
-        for (auto i: examples) {
-            std::cout << i << " === \n" << transliter.translitString(i) << std::endl;
+        std::cout << "Choose language:" << std::endl << "1) English" << std::endl << "2) Russian" << std::endl;
+        
+        std::string inputString;
+        int userChoose = 0;
+        std::cin >> userChoose;
+        
+        std::cout << "Input string:" << std::endl;
+        std::getline(std::cin, inputString);
+        std::getline(std::cin, inputString);
+        
+        ITranslit* transliter;
+        switch (userChoose)
+        {
+        case 1:
+            {
+                ILang* lang = new EnglishLang();
+                transliter = new EnglishTranslit(lang);
+                break;
+            }
+        case 2:
+            {
+                ILang* lang = new RussianLang();
+                transliter = new RussianTranslit(lang);
+                break;
+            }
+        default:
+            std::cout << "Wrong language" << std::endl;
+            break;
         }
+        std::cout << transliter->translitString(inputString);
     
     return 0;
 }
